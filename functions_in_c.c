@@ -13,8 +13,7 @@ int max_of_four(int a, int b, int c, int d){ /* Puts the greatest one to last in
     return arr[3];
 }
 int main() {
-    int a, b, c, d;
-    int ans ;
+    int a, b, c, d, int ans;
     scanf("%d %d %d %d", &a, &b, &c, &d);
     ans = max_of_four(a, b, c, d);
     printf("%d", ans);
