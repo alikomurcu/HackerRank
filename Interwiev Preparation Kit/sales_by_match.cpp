@@ -16,23 +16,22 @@ typedef unordered_map<int , int> hMap;
  */
 
 int sockMerchant(int n, vector<int> ar) {
-    hMap hm;
+    hMap hm;  // creating a hashmap here
     int cnt = 0;
     for(auto e: ar)
     {
         try {
-        hm.at(e) += 1;
+        hm.at(e) += 1; // if key exists, increment the value
         } catch (const out_of_range &er) {
-            hm[e] = 1;
+            hm[e] = 1;  // if key does not exist, allocate memory and make value 1 
         }
     }
     for(auto e: ar)
     {
-        if(hm.at(e))
+        if(hm.at(e))  // if value is nonzero, iterate
         {
-            //cnt += hm[e]/2;
-            cnt += hm[e] % 2 ? hm[e]/2 : (hm[e]+1)/2;
-            hm[e] = 0;
+            cnt += hm[e] % 2 ? hm[e]/2 : (hm[e]+1)/2;  // if value is even, then divide value by 2; if value is odd, then divide by 2 and take ceiling
+            hm[e] = 0;  // make value 0
         }
     }
         return cnt;
